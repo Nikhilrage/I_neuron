@@ -1,6 +1,17 @@
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { useAppDispatch, useAppSelector } from "./Redux/store";
+import {
+  setOpenToast,
+  setToastMessage,
+} from "./Redux/slices/dashboardStateSlice";
+import Dashboard from "./components/Dashboard/Dashboard";
+import AddUserModal from "./components/Modals/AddUserModal";
+import DeleteUserModal from "./components/Modals/DeleteUserModal";
+import SnackBar from "./components/Modals/SnackBar";
+import Loader from "./atoms/Loader/Loader";
+import Sidebar from "./atoms/Sidebar/Sidebar";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -47,7 +58,6 @@ function App() {
             className="bg-[#F7F9FB] w-full"
             style={{
               borderTopLeftRadius: "20px",
-              //width: "100%",
             }}
           >
             <Dashboard />
