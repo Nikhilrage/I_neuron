@@ -66,15 +66,15 @@ const DeleteUserModal = () => {
         <center>
           <p>Are you sure you want to delete the user.</p>
 
-          <div className="pt-9">
+          <div className="pt-9 flex flex-row items-center justify-between">
             <button
-              className="float-left py-2 mr-4 w-32 bg-[#0669F8] text-[#fff] rounded-md"
+              className="float-left py-2 mr-4 px-3 bg-[#0669F8] text-[#fff] rounded-md"
               onClick={() => dispatch(setOpenDeleteUserModal(false))}
             >
               Cancel
             </button>
             <button
-              className=" float-right py-2 w-32 bg-[#0669F8] text-[#fff] rounded-md"
+              className=" float-right py-2 px-3 bg-[#0669F8] text-[#fff] rounded-md"
               onClick={() => deleteUser()}
             >
               Confirm

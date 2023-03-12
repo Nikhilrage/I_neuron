@@ -15,12 +15,12 @@ const Cards = () => {
   const activeUsers = useAppSelector(({ users }) => users.activeUsers);
 
   const cardData: cardDataInterface[] = [
-    { cardTitle: "Active Users", count: activeUsers ? activeUsers.length : 0 },
+    { cardTitle: "Active Users", count: activeUsers ? activeUsers?.length : 0 },
     {
       cardTitle: "Archived Users",
       count:
-        JSON.parse(getDeletedUsers).length > 0
-          ? JSON.parse(getDeletedUsers).length
+        JSON.parse(getDeletedUsers)?.length > 0
+          ? JSON.parse(getDeletedUsers)?.length
           : 0,
     },
   ];

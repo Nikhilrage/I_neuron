@@ -171,7 +171,13 @@ const AddUserModal = () => {
                 minLength={4}
                 maxLength={15}
                 onChange={(e) => {
-                  setFirstName(e.target.value);
+                  if (/^[A-Za-z]+$/.test(e.target.value)) {
+                    setFirstName(e.target.value);
+                  } else {
+                    setFirstNameInputErrorMsg(
+                      "First name should only contain alphabets"
+                    );
+                  }
                 }}
               />
               <span>
@@ -192,7 +198,13 @@ const AddUserModal = () => {
                 minLength={4}
                 maxLength={15}
                 onChange={(e) => {
-                  setLastName(e.target.value);
+                  if (/^[A-Za-z]+$/.test(e.target.value)) {
+                    setLastName(e.target.value);
+                  } else {
+                    setLastNameInputErrorMsg(
+                      "Last Name should only contain alphabets"
+                    );
+                  }
                 }}
               />
               <span>
@@ -209,7 +221,11 @@ const AddUserModal = () => {
                 name="phoneNumber"
                 value={phoneNumber}
                 onChange={(e) => {
-                  setPhoneNumber(e.target.value);
+                  if (!isNaN(Number(e.target.value))) {
+                    setPhoneNumber(e.target.value);
+                  } else {
+                    setNumberErrorMsg("Number should only contain digits");
+                  }
                 }}
                 min={10}
                 maxLength={10}
@@ -223,7 +239,7 @@ const AddUserModal = () => {
                 Age <span className="text-[red]">*</span>
               </label>
               <input
-                type="text"
+                type="number"
                 placeholder="Your Age"
                 name="age"
                 value={age && age}
@@ -231,17 +247,16 @@ const AddUserModal = () => {
                   if (
                     e.target.value.charAt(0) === "0" ||
                     isNaN(Number(e.target.value)) ||
-                    (Number(e.target.value) < 18 && Number(e.target.value) > 70)
+                    Number(e.target.value) < 18
                   ) {
                     setAgeErrorMsg(
-                      "Please enter a valid age. Age should be between 18 to 70"
+                      "Please enter a valid age. Age should be above 18"
                     );
                     setAge("");
                   } else {
                     setAgeErrorMsg("");
-
-                    setAge(Number(e.target.value));
                   }
+                  setAge(Number(e.target.value));
                 }}
                 maxLength={2}
               />

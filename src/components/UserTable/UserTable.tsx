@@ -51,7 +51,7 @@ const UserTable = () => {
     // the below code will be used to make table data as per tabs selected
 
     if (activeTab === 2) {
-      const parsingDeletedUsers = JSON.parse(getDeletedUsers);
+      const parsingDeletedUsers = JSON.parse(getDeletedUsers) || [];
       const getAllUsers = [...activeUsers, ...parsingDeletedUsers];
       const logs: logsInterface[] = getAllUsers.map((user: userLogs) => {
         return {
@@ -67,7 +67,7 @@ const UserTable = () => {
     } else {
       let userTableData: any = [];
       if (activeTab === 1) {
-        const parsingDeletedUsers: any = JSON.parse(getDeletedUsers);
+        const parsingDeletedUsers: any = JSON.parse(getDeletedUsers) || [];
         userTableData = [...parsingDeletedUsers];
       }
       if (activeTab === 0) {
@@ -99,7 +99,7 @@ const UserTable = () => {
   return (
     <div>
       <TableTabs />
-      <div className="w-full max-h-80 overflow-y-scroll	">
+      <div className="w-full  overflow-y-scroll	" style={{ maxHeight: 300 }}>
         <table width={"100%"} className="noScrollbar bg-[#F7F9FB]">
           <thead className="bg-[#F7F9FB] border-b border-slate-200 sticky top-0">
             <tr>
