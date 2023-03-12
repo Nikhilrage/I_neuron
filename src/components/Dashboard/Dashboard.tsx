@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { dashboardCalls } from "../../api/fetchHelper";
 import UserTable from "../UserTable/UserTable";
 import Cards from "./Cards";
-import { useDispatch } from "react-redux";
 import { constants } from "../../constants";
+//Redux imports
+import { useDispatch } from "react-redux";
 import { setAllUsers } from "../../Redux/slices/userSlice";
 import {
   setLoading,
